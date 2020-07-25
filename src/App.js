@@ -1,26 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Selector from './components/Selector'
+import Selected from './components/Selected'
+import { loadCities, loadNames } from "./actions"
+import { connect } from 'react-redux'
 
-function App() {
-  return <div className="as-background-info">
+function App({ loadCities, loadNames, cities, names }) {
+  useEffect(()=>{
+    loadCities()
+    loadNames()
+  },[loadCities, loadNames]);
 
-  <div className="container">
-    <h6>Selector</h6>
+  return <div className="has-background-info">
+  <div className="section">
     <div className="columns">
       <div className="column">
-        First column
+        <Selector cities={cities} options={names} />
       </div>
       <div className="column">
-        Second column
-      </div>
-      <div className="column">
-        Third column
-      </div>
-      <div className="column">
-        Fourth column
+        <Selected cities={cities} selected={names} />
       </div>
     </div>
     </div>
   </div>
 }
 
-export default App
+const mapStateToProps = ({ cities, names }) => {
+  return { cities, names }
+}
+
+export default connect(mapStateToProps,{ loadCities, loadNames })(App)

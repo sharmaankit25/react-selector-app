@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import cities from './cities.reducer'
+import names from './names.reducer'
 
 
 const appReducer = combineReducers({
-  cities
+  cities,
+  names
 });
 
 const rootReducer = (state, action) => {
