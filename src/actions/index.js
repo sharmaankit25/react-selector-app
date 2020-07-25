@@ -9,13 +9,18 @@ export const loadCities = () => {
 }
 
 export const loadNames = () => {
+    const data = names.map(n => {
+      n.status = false
+      return n
+    })
     return {
       type: LOAD_NAMES,
-      payload: names
+      payload: data
     }
 }
 
 export const toggleName = (name) => {
+  console.log('actions', name)
     return {
         type: TOGGLE_NAME,
         payload: name
