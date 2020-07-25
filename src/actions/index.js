@@ -20,7 +20,6 @@ export const loadNames = () => {
 }
 
 export const toggleName = (name) => {
-  console.log('actions', name)
     return {
         type: TOGGLE_NAME,
         payload: name

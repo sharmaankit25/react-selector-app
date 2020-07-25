@@ -21,7 +21,7 @@ function App({ loadCities, loadNames, toggleName, cities, names }) {
         <Selector cities={cities} toggleOption={toggleOption} options={names} />
       </div>
       <div className="column">
-        <Selected cities={cities}  selected={names.filter(s => s.status)} />
+        <Selected cities={cities}toggleOption={toggleOption}   selected={names.filter(s => s.status)} />
       </div>
     </div>
     </div>
