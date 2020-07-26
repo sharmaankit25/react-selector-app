@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../containers/Card'
 
 export default ({ cities, selected, toggleOption }) => {
-	const renderData = cities.some((c) =>
+	const renderData = cities && cities.some((c) =>
 		selected.some((s) => s.cityId === c.id)
   )
 	const renderCities = cities
@@ -23,8 +23,8 @@ export default ({ cities, selected, toggleOption }) => {
 		))
 
 	if (renderData) {
-		return <div className="box">{renderCities}</div>
+		return <div data-testid="selected" className="box">{renderCities}</div>
 	} else {
-		return <div className="box">No data selected</div>
+		return <div data-testid="selected" className="box">No data selected</div>
 	}
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default ({ children, title }) => (
-    <article className="panel is-primary">
+    <article data-testid="card" className="panel is-primary">
         <p className="panel-heading">
           { title }
         </p>
